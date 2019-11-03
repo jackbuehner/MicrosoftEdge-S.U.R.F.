@@ -1,0 +1,16 @@
+{
+  "short_name": "S.U.R.F.",
+  "name": "S.U.R.F.",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#243A5E",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#243A5E"
+}
