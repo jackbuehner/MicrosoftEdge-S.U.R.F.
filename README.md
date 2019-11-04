@@ -5,6 +5,9 @@ The S.U.R.F. game from edge://surf
 
 I did not create this game; I just copied the files from Microsoft Edge and modified some URLS so it would work outside of Edge.
 
+## Playing
+Play the game at https://surf.jackbuehner.com
+
 ## What I changed
 - Changed some URLs
 - Added a favicon
