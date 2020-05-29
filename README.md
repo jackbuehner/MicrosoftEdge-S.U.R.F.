@@ -11,7 +11,10 @@ Play the game at https://surf.jackbuehner.com
 ## What I changed
 - Changed some URLs
 - Added a favicon
+- Added an ico favicon to support multiple icon sizes
 - Added a manifest.json so the website can be added as a PWA app
+- Ran minimized JavaScript files through a beautifier to make modification easier.
+- Updated functions in surf.bundle.js which relied on [WebUI](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/webui_explainer.md) and called into native code on Edge. Those functions now use localStorage to save the game stats.
 
 ## What is not working
 - Clicking the treasure chest does not open the popup with the new Edge logo
