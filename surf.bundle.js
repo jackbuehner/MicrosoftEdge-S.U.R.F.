@@ -223,7 +223,7 @@
                 //G.a.send("reset-stats")
                 ("undefined" != typeof G.a && "function" == typeof G.a.send)
                     ? G.a.send("reset-stats")
-                    : localStorage.setItem("stats", JSON.stringify( W.defaultStats() ));
+                    : localStorage.removeItem("stats");
             }
             static saveClassicHighScore(e) {
                 //G.a.send("set-high-score", [w.Classic, Math.floor(e)])
