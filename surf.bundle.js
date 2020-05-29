@@ -217,13 +217,13 @@
                 return ("undefined" != typeof G.a && "function" == typeof G.a.send && "undefined" != typeof G.b && "function" == typeof G.b.sendWithPromise)
                     ? G.b.sendWithPromise("get-stats")
                     : Promise.resolve(
-                        JSON.parse(localStorage.getItem("stats")) || W.defaultStats() )
+                        JSON.parse( localStorage.getItem("stats")) || W.defaultStats() );
             }
             static resetAllStats() {
                 //G.a.send("reset-stats")
-                ("undefined" != typeof G.a && "function" == typeof G.a.send) 
-                    ? G.a.send("reset-stats") 
-                    : localStorage.setItem("stats", "{}");
+                ("undefined" != typeof G.a && "function" == typeof G.a.send)
+                    ? G.a.send("reset-stats")
+                    : localStorage.setItem("stats", JSON.stringify( W.defaultStats() ));
             }
             static saveClassicHighScore(e) {
                 //G.a.send("set-high-score", [w.Classic, Math.floor(e)])
