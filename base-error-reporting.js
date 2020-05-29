@@ -12,6 +12,6 @@ function hookErrorReporting(component) {
             source_url: source,
             stack: error.stack
         };
-        //chrome.errorReporting.reportError(errorInfo);
+        chrome.errorReporting.reportError(errorInfo);
     };
 }
