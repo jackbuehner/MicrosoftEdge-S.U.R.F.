@@ -1,0 +1,398 @@
+/** Copyright (C) Microsoft Corporation. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+/* minimal css reset */
+html, body, div, h1, h2, h3, h4, h5, h6, a, p, img, ul, li, button { padding: 0; margin: 0; border: 0; outline: 0; }
+
+html, body {
+    width: 100vw; /* fullscreen */
+    height: 100vh; /* fullscreen */
+    overflow: hidden;
+    user-select: none;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    touch-action: pinch-zoom; /* prevents navigating back with one finger */
+}
+
+#hamburger-container {
+  overflow: visible;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+html[dir="rtl"] #hamburger-container {
+  right: unset;
+  left: 10px;
+}
+
+/* page structure */
+
+#modal-root {
+  position: fixed;
+}
+
+#game-bg {
+    background: linear-gradient(rgb(56, 194, 238) 0%, rgb(46, 195, 208) 100%);
+    z-index: -1000;
+    pointer-events: none;
+}
+
+@media (forced-colors:active) {
+    #game-bg {
+        background: Canvas !important; /* takes main bg color preference */
+        /* CanvasText, LinkText, VisitedText, ActiveText, GrayText, Field, FieldText, HighlightText, Highlight (txt bg), ButtonText, ButtonFace (btn bg) */
+    }
+}
+
+#game-water {
+    background-image: url('water256.png');
+    background-size: 256px 256px;
+    background-repeat: repeat;
+    image-rendering: pixelated; /* important */
+    z-index: -900;
+    pointer-events: none;
+}
+
+#game-canvas {
+    image-rendering: pixelated; /* important */
+    z-index: -800;
+}
+
+.full-size {
+    position: absolute;
+    width: 100vw; /* fullscreen */
+    height: 100vh; /* fullscreen */
+    top: 0;
+    left: 0;
+}
+
+
+
+
+
+/* overlay */
+
+#game-tint,
+#game-tint.visible {
+    pointer-events: none;
+    z-index: 0;
+    background-color: rgba(255,255,255,0);
+    transition-timing-function: cubic-bezier(0.30, 0.20, 0.20, 1.00);
+    transition: background-color 0.35s;
+}
+
+#game-tint.visible {
+    pointer-events: inherit;
+    background-color: rgba(255,255,255,0.25);
+}
+
+#game-clicktarget {
+    z-index: 1;
+}
+
+
+
+
+
+/* main game ui */
+
+#game-ui {
+    width: calc(100vw - 32px); /* fullscreen minus 32 padding */
+    height: calc(100vh - 32px); /* fullscreen minus 32 padding */
+    padding: 16px;
+    z-index: 2;
+}
+
+#ui-title {
+    text-transform: uppercase;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: bold;
+    width: calc(100vw - 32px); /* fullscreen minus 32 padding */
+    position: absolute;
+    top: calc(100vh * 0.1);
+    text-align: center;
+    height: 100px;
+}
+
+#ui-info {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 600;
+    width: calc(100vw - 32px); /* fullscreen minus 32 padding */
+    position: absolute;
+    top: calc(100vh * 0.2);
+    text-align: center;
+    height: 100px;
+}
+
+.info-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.info-button-key {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px solid #000000;
+    border-radius: 4px;
+}
+
+.info-button-btn {
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px solid #000000;
+    border-radius: 16px;
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 600;
+    font-family: system-ui, sans-serif;
+}
+
+.info-button-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.info-button-text {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    font-size: 24px;
+    line-height: 20px;
+    padding: 2px 6px 3px 6px;
+    height: 20px;
+    font-family: system-ui, sans-serif;
+}
+
+.info-button-keytext {
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 0px 6px;
+    height: 32px;
+    font-family: system-ui, sans-serif;
+}
+
+#ui-selection {
+    width: calc(100vw - 32px); /* fullscreen minus 32 padding */
+    position: absolute;
+    top: calc(100vh * 0.4 - 48px);
+    text-align: center;
+    height: 100px;
+}
+
+#selection-box {
+    display: inline-block;
+    width: 72px;
+    height: 72px;
+    vertical-align: middle;
+}
+
+#ui-selection button {
+    font-size: 24px;
+    padding: 4px;
+    /*font-family: 'Full MDL2 Assets';*/
+    vertical-align: middle;
+}
+
+#ui-notify {
+    width: calc(100vw - 32px); /* fullscreen minus 32 padding */
+    position: absolute;
+    top: calc(100vh * 0.4 + 96px);
+    text-align: center;
+    height: 48px;
+}
+
+#notify-text {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    padding: 16px 32px;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.5);
+    margin: 0 auto;
+}
+
+
+
+/* game stats and ui */
+
+#ui-top {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#top-stats {
+    width: 300px;
+    display: flex;
+    margin: 0 auto;
+}
+
+#stats-counter,
+#stats-lives,
+#stats-power {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+#stats-counter {
+    height: 24px;
+    flex-basis: 140px;
+}
+
+#counter-amount {
+    font-weight: bold;
+    text-align: center;
+    z-index: 3;
+}
+
+#stats-lives,
+#stats-power {
+    height: 24px;
+    flex-basis: 80px;
+}
+
+.counter-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.counter-text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+}
+
+.icon-stroke {
+    stroke: #000000;
+    fill: none;
+}
+
+.icon-fill {
+    fill: #000000;
+}
+
+#ui-notify .icon-fill {
+    fill: #FFFFFF;
+}
+
+@media (forced-colors:active) {
+    .icon-stroke {
+        stroke: CanvasText !important; /* takes color preference */
+        /* CanvasText, LinkText, VisitedText, ActiveText, GrayText, Field, FieldText, HighlightText, Highlight (txt bg), ButtonText, ButtonFace (btn bg) */
+    }
+
+    .icon-fill {
+        fill: CanvasText !important; /* takes color preference */
+    }
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('interface24.png');
+    background-size: 48px 96px;
+}
+
+.life-empty { background-position: 0 0; }
+.life-full { background-position: -24px 0; }
+.powerup-empty { background-position: 0 -24px; }
+.powerup-full { background-position: -24px -24px; }
+.shield { background-position: -24px -48px; }
+.infinite { background-position: 0 -48px; }
+.icon.powerup-small {
+    display: inline-block;
+    background-position: -24px -24px;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    background-size: 48px 96px;
+    margin-inline-end: 12px;
+}
+
+.icon.life-small {
+    display: inline-block;
+    background-position: -24px 0;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    background-size: 48px 96px;
+    margin-inline-end: 12px;
+}
+
+.icon.shield-small {
+    display: inline-block;
+    background-position: -24px -48px;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    background-size: 48px 96px;
+    margin-inline-end: 12px;
+}
+
+.icon.coin-small {
+    display: inline-block;
+    background-position: -24px -72px;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    background-size: 48px 96px;
+    margin-inline-end: 12px;
+}
+
+
+
+/* buttons */
+#game-ui button {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background: rgba(0,0,0,0);
+    color: #000000;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#game-ui button:hover {
+    color: #000000;
+    background-color: rgba(255,255,255,0.4);
+}
+
+#game-ui button:focus {
+    color: #000000;
+    border: 2px solid #000000;
+    background-color: rgba(255,255,255,0.4);
+}
+
+html[dir="rtl"].icon-arrow-right,
+html[dir="rtl"].icon-arrow-left {
+    /* undo RTL */
+    transform: scale(-1, 1);
+}
