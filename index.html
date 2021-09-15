@@ -17,56 +17,27 @@
     <link rel="apple-touch-icon" sizes="152x152" href="resources/icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="resources/icons/apple-icon-180x180.png">
     <link rel="icon" type="image/png" sizes="192x192"  href="resources/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="resources/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="resources/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="resources/icons/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="resources/icons/favicon.svg">
     <link rel="manifest" href="manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="resources/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <script src="base-error-reporting.js"></script>
-    <script src="surf-error-reporting.js"></script>
-    <!--script src="edge://resources/js/assert.js"></script-->
+    <script src="resources/js/base-error-reporting.js"></script>
+    <script src="resources/js/surf-error-reporting.js"></script>
     <script src="resources/js/assert.js"></script>
-    <!--script src="edge://resources/js/promise_resolver.js"></script-->
     <script src="resources/js/promise_resolver.js"></script>
-    <!--script src="edge://resources/js/cr.js"></script-->
     <script src="resources/js/cr.js"></script>
-    <!--script src="edge://resources/js/parse_html_subset.js"></script-->
     <script src="resources/js/parse_html_subset.js"></script>
-    <!--script src="edge://resources/js/load_time_data.js"></script-->
     <script src="resources/js/load_time_data.js"></script>
-    <!--script src="edge://resources/js/util.js"></script-->
     <script src="resources/js/util.js"></script>
-    <script src="focus-visible.min.js"></script>
-    <script src="strings.js"></script>
-    <link href="interface.css" rel="stylesheet" media="all" />
+    <script src="resources/js/strings.js"></script>
+    <link href="resources/css/interface.css" rel="stylesheet" media="all"/>
   </head>
-  <body>
-		<div id="game-bg" class="full-size"></div>
-		<div id="game-water" class="full-size"></div>
-		<canvas id="game-canvas" class="full-size"></canvas>
-		<div id="game-tint" class="full-size"></div>
-		<div id="game-ui" class="full-size"></div>
-    <div style="display:none" id="preload">
-      <img src="ambient64.png" id="ambient64"/>
-      <img src="docks64.png" id="docks64" />
-      <img src="effects128.png" id="effects128" />
-      <img src="enemy128.png" id="enemy128" />
-      <img src="interact64.png" id="interact64" />
-      <img src="interface24.png" id="interface24" />
-      <img src="island1280.png" id="island1280" />
-      <img src="objects32.png" id="objects32" />
-      <img src="objects64.png" id="objects64" />
-      <img src="player64.png" id="player64" />
-      <img src="ripple96.png" id="ripple96" />
-      <img src="sandbar256.png" id="sandbar256" />
-      <img src="slowdown64.png" id="slowdown64" />
-      <img src="surfboard64.png" id="surfboard64" />
-      <img src="surfer64.png" id="surfer64" />
-      <img src="water256.png" id="water256" />
-    </div>
-    <div id="hamburger-container"></div>
-    <div id="modal-root"></div>
-  <script type="text/javascript" src="lib_react.chunk.js"></script><script type="text/javascript" src="lib_common.chunk.js"></script><script type="text/javascript" src="surf.bundle.js"></script></body>
+    <body>
+        <div id="hamburger-container"></div>
+        <div id="modal-root"></div>
+        <script defer="defer" src="resources/js/lib_react.chunk.js"></script>
+        <script defer="defer" src="resources/js/lib_common.chunk.js"></script>
+        <script defer="defer" src="resources/js/surf.bundle.js"></script>
+    </body>
 </html>
