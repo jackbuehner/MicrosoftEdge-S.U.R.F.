@@ -11,37 +11,12 @@ The game is created by Microsoft, please see the **Credits** in the game menu fo
 Play the game online at https://surf.jackbuehner.com
 
 ### Features
-- Three game modes: Endless, Time Trial and Zig Zag.
-- Save stats.
-- Accessibility options: High visibility and Reduced speed mode.
-- Keyboard, mouse and gamepad (Xbox and Playstation controllers) support.
-- Cheat codes. Entering combinations in the character select screen will unlock cool secrets. Try guessing the answer from these clues:
-  - The cheat code that started it all.
-    <details><summary>ANSWER</summary>
-  
-    Konami code: <kbd>&#8593;</kbd> <kbd>&#8593;</kbd> <kbd>&#8595;</kbd> <kbd>&#8595;</kbd> <kbd>&#8592;</kbd> <kbd>&#8594;</kbd> <kbd>&#8592;</kbd> <kbd>&#8594;</kbd> <kbd>B</kbd> <kbd>A</kbd>
-  
-    </details>
-  - A big, multi-dollar company.
-    <details><summary>ANSWER</summary>
-  
-    ``microsoft``
-    </details>
-  - This game can't run without this.
-    <details><summary>ANSWER</summary>
-  
-    ``edge``
-    </details>
-  - Want some challenges? Try to become a giant!
-    <details><summary>ANSWER</summary>
-  
-    ``big``
-    </details>
-  - Feeling unsafe? Try being opposite.
-    <details><summary>ANSWER</summary>
-  
-    ``safe``
-    </details>
+- Endless mode: Surf as far as you can while avoiding obstacles and the kraken. You can switch modes via the game settings menu.
+- Time trials: Reach the end of the course as fast as you can! Collect coins to shorten your time. The course is always the same, so can you find the shortest route?
+- Zig zag mode: Surf through as many gates as you can in a row! Your streak will reset if you miss a gate, but you can keep playing until your lives run out.
+- High scores: Each game mode keeps a record of your high score, and we’ll let you know whenever you set a new record. Reset your stats any time for a fresh start.
+- Reduced speed mode: If you prefer a more relaxed pace or need extra time to pull off those surfing moves, enable reduced speed mode to slow down the game speed.
+- And surprises! With support for keyboard, mouse, touch, and controllers you can play the game your way... and you may find one of the many Easter Eggs and fun surprises!
 
 ## Changes
 - Changed file paths so the repo is more organized.
