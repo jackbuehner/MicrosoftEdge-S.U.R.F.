@@ -562,13 +562,14 @@
                     }
                     static defaultStats() { // newly added, these are not present in the original but from old code
                         return {
-                            timetrial_bestScore: -1,
                             endless_bestScore: -1,
-                            currentCharacter: 4,
-                            highVisibilityMode: false,
+                            zigzag_bestScore: -1,
+                            timetrial_bestScore: -1,
+                            currentCharacter: 1,
+                            theme: "surf",
                             mode: "endless",
-                            reducedSpeedMode: false,
-                            timetrial_bestScore: -0.001
+                            highVisibilityMode: false,
+                            reducedSpeedMode: false
                         }
                     }
                     static async getAllStats() {
