@@ -10453,6 +10453,7 @@
                   he.resetAllStats(),
                   ue.sys.refreshDisplay(),
                   this.closeModal();
+                location.reload(); // reload after stats are reset so that stale stats are not displayed
               }),
               (this.state = {
                 menuOpen: !1,
