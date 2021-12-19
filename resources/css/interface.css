@@ -117,7 +117,6 @@ html[dir="rtl"].icon-arrow-left {
 
 #ui-title,
 #ui-subtitle {
-  position: absolute;
   width: calc(100vw - 32px); /* fullscreen minus 32 padding */
   font-weight: bold;
   text-align: center;
@@ -125,13 +124,13 @@ html[dir="rtl"].icon-arrow-left {
 }
 
 #ui-title {
-  top: calc(100vh * 0.10);
+  margin-top: calc(10vh - 40px);
   line-height: 48px;
   font-size: 48px;
 }
 
 #ui-subtitle {
-  top: calc(100vh * 0.18);
+  margin-top: 10px;
   line-height: 24px;
   font-size: 24px;
 }
@@ -154,7 +153,7 @@ html[dir="rtl"].icon-arrow-left {
 
 #ui-selector {
   position: absolute;
-  top: calc(100vh * 0.4 - 64px);
+  top: calc(40vh - 64px);
   left: calc(50vw - 240px);
   width: 480px; /* fullscreen minus 32 padding */
   height: 128px;
@@ -203,10 +202,10 @@ html[dir="rtl"].icon-arrow-left {
 }
 
 @supports not (-moz-appearance:none) {
-    #instruct-content.tinted {
-        backdrop-filter: blur(32px);
-        -webkit-backdrop-filter: blur(32px);
-    }
+  #instruct-content.tinted {
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+  }
 } /* Backdrop filter is broken on Firefox */
 
 #instruct-icon { /* xbox + ps */
@@ -269,6 +268,7 @@ html[dir="rtl"].icon-arrow-left {
 
 #notify-shareLink {
   display: inline-flex;
+  vertical-align: -33%;
   align-items: center;
   font-weight: normal;
   background-color: rgba(255,255,255,0.2);
@@ -277,7 +277,7 @@ html[dir="rtl"].icon-arrow-left {
   border-radius: 4px;
   cursor: pointer;
   color: currentColor;
-  font-family: inherit
+  font-family: inherit;
 }
 
 #notify-shareLink:hover {
@@ -343,6 +343,10 @@ html[dir="rtl"].icon-arrow-left {
   font-size: 16px;
   font-weight: bold;
   line-height: 22px;
+}
+
+.icon-star {
+  vertical-align: top;
 }
 
 .icon-fill {
