@@ -200,6 +200,20 @@
                     e.ZigZag = "zigzag", e.Endless = "endless", e.TimeTrial = "timetrial"
                 }(q || (q = {}));
                 const G = {
+          ski: {
+            gradient: {
+              start: [244, 244, 244],
+              end: [222, 222, 222],
+            },
+            hitbox: {
+              crash: "#000000",
+              boost: "#00FF00",
+              avoid: "#FF0000",
+            },
+            boundary: [0, 0, 0, 0.1],
+            accent: [216, 140, 249],
+            folder: "resources/ski",
+          },
                     surf: {
                         gradient: {
                             start: [56, 194, 238],
