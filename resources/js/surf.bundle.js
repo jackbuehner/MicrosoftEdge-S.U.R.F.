@@ -605,7 +605,7 @@
             zigzag_bestScore: -1,
             timetrial_bestScore: -1,
             currentCharacter: 1,
-            theme: "surf",
+            theme: new Date().getMonth() === 11 ? "ski" : "surf",
           };
         }
         !(function (e) {
@@ -690,7 +690,7 @@
               zigzag_bestScore: -1,
               timetrial_bestScore: -1,
               currentCharacter: 1,
-              theme: "surf",
+              theme: new Date().getMonth() === 11 ? "ski" : "surf",
               mode: "endless",
               highVisibilityMode: false,
               reducedSpeedMode: false,
